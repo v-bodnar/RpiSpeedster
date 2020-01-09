@@ -1,0 +1,13 @@
+dependencies{
+}
+
+archivesBaseName = 'RpiSpeedsterClient'
+jar {
+    manifest {
+        attributes "Main-Class": "com.omb.Application"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

@@ -1,2 +1,3 @@
-rootProject.name = 'RpiSpeedster'
-
+rootProject.name = 'rpi-speedster'
+include 'server'
+include 'client'
