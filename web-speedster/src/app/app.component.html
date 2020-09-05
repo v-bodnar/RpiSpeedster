@@ -1,0 +1,78 @@
+<div class="container p-5">
+  <!--  <input type="text" class="form-control" placeholder="speedster ws url"/>-->
+  <div class="wrap border border-primary">
+    <table>
+      <tbody>
+      <tr>
+        <td>
+          <button type="button" id="q" class="btn btn-outline-info" [ngClass]="{'active':qPressed}">-</button>
+        </td>
+
+        <td>
+          <button type="button" id="up" class="btn btn-outline-info" [ngClass]="{'active':upPressed}">&uarr;</button>
+        </td>
+
+        <td>
+          <button type="button" id="e" class="btn btn-outline-info" [ngClass]="{'active':ePressed}">+</button>
+        </td>
+
+        <td rowspan="4">
+          <input type="range" class="form-control-range" id="speed" [value]="speed" orient="vertical"/>
+          <input id="speed-text" type="text" class="border border-0" [value]="speed"/>
+        </td>
+
+        <td rowspan="4">
+          <div class="joystick">
+            <div class="zone rounded-circle" [style]="{'background':joystickData?'white':'lightblue'}">
+              <ngx-joystick #semiJoystick [options]="joystickOptions"
+                            (move)="onJoystickMove($event)"
+                            (start)="startTimer()"
+                            (end)="holdCamera()"></ngx-joystick>
+            </div>
+          </div>
+
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          <button type="button" id="left" class="btn btn-outline-info " [ngClass]="{'active':leftPressed}">&larr;
+          </button>
+        </td>
+        <td>
+          <button type="button" id="down" class="btn btn-outline-info " [ngClass]="{'active':downPressed}">&darr;
+          </button>
+        </td>
+        <td>
+          <button type="button" id="right" class="btn btn-outline-info " [ngClass]="{'active':rightPressed}">&rarr;
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button type="button" id="break" class="btn btn-outline-info" [ngClass]="{'active':spacePressed}">BREAK
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="p-1">
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--    <div *ngIf="joystickData" class="zone-absolute" style="z-index: -1;">-->
+  <!--      <div style="float: right;">-->
+  <!--        <div>xPos: {{ joystickData.position.x | number:'3.2-2' }}</div>-->
+  <!--        <div>yPos: {{ joystickData.position.y | number:'3.2-2' }}</div>-->
+  <!--      </div>-->
+  <!--      <div>frontXPos: {{ joystickData.instance.frontPosition.x | number:'2.5-5'}}</div>-->
+  <!--      <div>frontYPos: {{ joystickData.instance.frontPosition.y | number:'2.5-5'}}</div>-->
+  <!--      <div>force: {{ joystickData.force }}</div>-->
+  <!--      <div>angle-deg: {{ joystickData.angle.degree }}</div>-->
+  <!--      <div>angle-rad: {{ joystickData.angle.radian }}</div>-->
+  <!--      <div>direction: {{ joystickData.direction ? joystickData.direction.angle : ''}}</div>-->
+  <!--      <div>distance: {{ joystickData.distance }}</div>-->
+  <!--    </div>-->
+
+</div>
